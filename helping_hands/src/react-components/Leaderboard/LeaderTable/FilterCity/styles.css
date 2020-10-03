@@ -1,0 +1,21 @@
+#region {
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+#changeCity {
+	width: 150px;
+	font-size: 15px;
+}
+
+#changeCityButton:hover {
+	cursor: pointer;
+	background-color: darkgray;
+}
+
+#changeCityButton {
+	padding: 7px;
+	margin: 10px;
+	border: none;
+	font-size: 15px;
+}

@@ -1,0 +1,26 @@
+.chatBox {
+  padding: 8px;
+  border-bottom: 1.5px solid rgb(230, 236, 240);
+  height: 69px;
+}
+
+.chatBox:hover {
+  background-color: rgb(230, 236, 240);
+  cursor: pointer;
+}
+
+.chatBoxAvatar img {
+	height: 54px;
+  float: left;
+  margin: 0px 13px 0px 13px;
+	border: 1px solid rgb(230, 236, 240);
+	border-radius: 50%;
+}
+
+.chatBoxBody {
+  margin-top: 10px;
+}
+
+.chatBoxBody p {
+  margin: auto;
+}

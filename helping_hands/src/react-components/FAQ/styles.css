@@ -1,0 +1,17 @@
+.faq {
+  width: 600px;
+  margin: auto;
+  margin-top: 74px;
+  border-left: 1.5px solid rgb(230, 236, 240);
+  border-right: 1.5px solid rgb(230, 236, 240);
+  min-height: calc(100vh - 74px);
+}
+
+.prompt {
+  text-align: left;
+  padding: 20px;
+  font-size: 18px;
+  /* color: rgb(160, 165, 180); */
+}
+
+

@@ -1,0 +1,52 @@
+.input {
+  text-align: left;
+  padding: 20px 16px;
+  border-bottom: 1.5px solid rgb(230, 236, 240);
+  margin-bottom: 10px;
+  background-color: white;
+  font-size: 18px;
+}
+
+.public-DraftEditorPlaceholder-inner {
+  position: absolute;
+  color: rgb(160, 165, 180);
+  pointer-events: none;
+}
+
+.hide .public-DraftEditorPlaceholder-inner {
+  display: none;
+}
+
+.DraftEditor-editorContainer {
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  margin-top: 30px;
+}
+
+.control {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin: 0px 10px;
+  padding: 0px;
+  border-radius: 5px;
+  height: 34px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.control:hover {
+  background-color: rgb(230, 236, 240);
+}
+
+.control.selected {
+  background-color: rgb(230, 236, 240);
+}
+
+.control img {
+  height: 18px;
+  padding: 8px;
+}

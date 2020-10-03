@@ -1,0 +1,8 @@
+.filters {
+  border-top: 1.5px solid rgb(230, 236, 240);
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,51 @@
+.oneAccordion {
+  padding: 0px 22px;
+}
+
+.oneAccordion .section {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  border-bottom: 1.5px solid rgb(230, 236, 240);
+}
+
+.oneAccordion .section:hover {
+  background-color: rgb(248, 250, 252);
+}
+
+.oneAccordion .section p {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.oneAccordion .visible p,
+.oneAccordion .hidden p {
+  text-align: left;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.oneAccordion .visible {
+  overflow: hidden;
+  transition: max-height 0.2s;
+  max-height: 0px;
+}
+
+.oneAccordion .hidden {
+  overflow-y: hidden;
+  transition: max-height 0.5s;
+  display: flex;
+  max-height: 500px;
+}
+
+#toggleIcon {
+  height: 12px;
+  width: 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
+  user-select: none;
+}

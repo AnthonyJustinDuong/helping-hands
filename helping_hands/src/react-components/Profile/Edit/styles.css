@@ -1,0 +1,8 @@
+#passwordErrors li {
+  text-align: left;
+  color: red;
+}
+#confirmPasswordError li {
+  text-align: left;
+  color: red;
+}

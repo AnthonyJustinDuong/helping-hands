@@ -1,0 +1,12 @@
+.user {
+	margin-top: 5px;
+	border: none;
+	font-weight: bold;
+	font-size: 17px;
+	background-color: white;
+}
+
+.user:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}

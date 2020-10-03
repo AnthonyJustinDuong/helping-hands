@@ -1,0 +1,99 @@
+#messagesComponent {
+  width: 100%;
+  height: calc(100vh - 74px);
+  margin-top: 74px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow-y: scroll;
+}
+
+#messagesComponent h2 {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1.5px solid rgb(230, 236, 240);
+}
+
+/* On the left */
+#messagesComponent > #chatListBox {
+  height: 100%;
+  width: 30%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 30%;
+  border-right: 1.5px solid rgb(230, 236, 240);
+}
+
+#chatList {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}
+
+/* On the right */
+#messagesComponent > #messages {
+  height: 100%;
+  flex: 1 1 69%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1.5px solid rgb(230, 236, 240);
+}
+
+#messagesHead {
+  background-color: rgb(159, 228, 255);
+  margin: 0px;
+  flex: 0 1 auto;
+}
+
+#messagesBody {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}
+
+#messagesInput {
+  flex: 0 1 auto;
+  max-height: 50%;
+  border-style: none;
+}
+
+#messagesInput .input {
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  margin: 0px 20px 0px 5px;
+  border-style: none;
+  border-top: 1.5px solid rgb(230, 236, 240);
+}
+
+/* The Post Button */
+#messagesInput .input .blue {
+  width: 20%;
+  margin-right: 25px;
+}
+
+/* Scrollbar */
+#messagesComponent ::-webkit-scrollbar {
+  width: 8px;
+}
+#messagesComponent ::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 10px;
+  border: 1.5px solid rgb(230, 236, 240);
+}
+#messagesComponent ::-webkit-scrollbar-thumb {
+  background: rgb(159, 228, 255);
+}
+
+.notLoggedIn {
+  width: 30%;
+  padding: 20px;
+  margin: 174px auto auto auto;
+  border: 1.5px solid rgb(230, 236, 240);
+  border-radius: 16px;
+}
+
+.notLoggedIn > h1 {
+  margin: 0px;
+}

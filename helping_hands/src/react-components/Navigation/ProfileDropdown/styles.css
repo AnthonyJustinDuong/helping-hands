@@ -1,0 +1,32 @@
+.profileDropdown {
+  position: absolute;
+  right: 0px;
+  background-color: white;
+  box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px,
+    rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 180px;
+}
+
+.link-container-dropdown {
+  padding: 10px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.link-container-dropdown:hover {
+  background-color: rgb(230, 236, 240);
+}
+
+.link-dropdown {
+  text-align: left;
+  text-decoration: none;
+  margin: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  border: none;
+  display: block;
+  padding: 0px 16px;
+}

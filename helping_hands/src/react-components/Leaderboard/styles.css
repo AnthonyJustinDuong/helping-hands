@@ -1,0 +1,15 @@
+.leaderboard {
+	margin-top: 74px;
+}
+
+#pointSystem {
+	font-style: italic;
+	font-size: 12px;
+	color: #595959;
+	background-color: #eafafa;
+	min-width: 780px;
+	text-align: center;
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px;
+}

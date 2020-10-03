@@ -1,0 +1,33 @@
+.reviewBoard {
+  border-left: 1.5px solid rgb(230, 236, 240);
+  border-right: 1.5px solid rgb(230, 236, 240);
+  border-bottom: 1.5px solid rgb(230, 236, 240);
+  background-color: rgb(230, 236, 240);
+  min-height: calc(100vh - 75.5px);
+  width: 600px;
+  margin: 74px auto auto auto;
+  margin-top: 74px;
+}
+.reviewBoard > .reported {
+  margin-top: 25px;
+  background-color: white;
+}
+.reviewBoard > .reported > .reportSummary > p {
+  font-size: 12pt;
+  margin: 0px;
+}
+.userReported {
+  color: red;
+}
+
+.notAdmin {
+  width: 30%;
+  padding: 20px;
+  margin: 174px auto auto auto;
+  border: 1.5px solid rgb(230, 236, 240);
+  border-radius: 16px;
+}
+
+.notAdmin > h1 {
+  margin: 0px;
+}

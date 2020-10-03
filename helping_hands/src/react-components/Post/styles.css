@@ -1,0 +1,118 @@
+.post {
+  border-top: 1.5px solid rgb(230, 236, 240);
+  background-color: white;
+  padding: 20px 16px;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.post:hover {
+  background-color: rgb(248, 250, 252);
+}
+
+.outerContainer {
+  display: flex;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+  border: 1px solid white;
+}
+
+.overlay-avatar {
+  position: absolute;
+  border: 1px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 20px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.overlay-avatar:hover {
+  background-color: rgb(25, 25, 25, 0.15);
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  display: inline;
+  margin: 0px;
+}
+
+.name:hover {
+  text-decoration: underline;
+}
+
+.date {
+  text-align: left;
+  font-size: 14px;
+  color: rgb(160, 165, 180);
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+.footer {
+  display: flex;
+  margin: 0px;
+}
+
+.footer-item {
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  line-height: 18px;
+}
+
+.icon-green {
+  height: 18px;
+  margin-right: 6px;
+  filter: invert(60%) sepia(98%) saturate(359%) hue-rotate(82deg)
+    brightness(87%) contrast(94%);
+}
+
+.icon-red {
+  height: 18px;
+  margin-right: 6px;
+  filter: invert(50%) sepia(97%) saturate(3691%) hue-rotate(334deg)
+    brightness(110%) contrast(102%);
+}
+
+.green {
+  color: rgb(45, 200, 85);
+}
+
+.red {
+  color: rgb(255, 80, 75);
+}
+
+.content {
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 15px !important;
+  margin-top: 1em !important;
+}
+
+.content ul {
+  font-size: 15px !important;
+}
+
+.content ol {
+  font-size: 15px !important;
+}
