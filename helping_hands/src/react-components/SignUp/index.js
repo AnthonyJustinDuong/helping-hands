@@ -175,7 +175,7 @@ class SignUp extends React.Component {
   submitForm = async (event) => {
     event.preventDefault();
 
-    addImage(this.ref.current, this.state.username);
+    // addImage(this.ref.current, this.state.username);
 
     if (this.state.usernameTaken) {
       alert("Unable to register. Please choose another username.");
@@ -228,6 +228,7 @@ class SignUp extends React.Component {
     }
 
     const json = await response.json();
+    console.log(json);
 
     const {
       firstName,
@@ -332,12 +333,14 @@ class SignUp extends React.Component {
 
           {this.renderFields()}
 
+{/*
           <form ref={this.ref}>
             <div>
               <label>Profile Picture</label>
               <input name="image" type="file" />
             </div>
           </form>
+    */}
 
           <input
             id="signupButton"

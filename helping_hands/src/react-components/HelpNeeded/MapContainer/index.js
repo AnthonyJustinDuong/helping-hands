@@ -59,7 +59,7 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log("render called in MapContainer");
+    console.log("render called in MapContainer, process.env: ", process.env);
     const containerStyle = {
       width: '100%',
       height: '100%'
