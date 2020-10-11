@@ -164,6 +164,9 @@ class HelpNeeded extends React.Component {
 
   render() {
     console.log(process.env);
+    console.log(process.env.MONGODB_URI);
+    console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+    console.log(process.env.GOOGLE_MAPS_API_KEY);
     return (
       <div className="helpNeeded">
         <Feed

@@ -2,7 +2,7 @@ import React from "react";
 import Leader from "./Leader";
 import FilterCity from "./FilterCity";
 import "./styles.css";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 
 /* Leaderboard Table component */
 class LeaderTable extends React.Component {

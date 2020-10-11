@@ -5,7 +5,7 @@ class FilterCity extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      city: "Ottawa", 
+      city: "Ottawa",
       users: this.props.users
     }
   }
@@ -16,7 +16,7 @@ class FilterCity extends React.Component {
     const currCity = document.getElementById("changeCity").value;
 
     // If our input has a value
-    if (currCity.value != "") {
+    if (currCity.value !== "") {
       this.setState({city: currCity});
       this.props.parentMethod(currCity);
     }

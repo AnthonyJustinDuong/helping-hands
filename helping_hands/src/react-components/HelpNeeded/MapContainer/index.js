@@ -1,5 +1,4 @@
 import React from 'react';
-import { uid } from "react-uid";
 import { GoogleMap, LoadScript, MarkerClusterer, TrafficLayer } from '@react-google-maps/api';
 import ClickableMarker from './ClickableMarker';
 

@@ -14,7 +14,7 @@ import { registerUser } from "../../actions/user.js";
 import { withRouter } from "react-router-dom";
 import "./styles.css";
 
-import { addImage } from "../../actions/image.js";
+// import { addImage } from "../../actions/image.js";
 
 /* Component for the Log In page */
 class SignUp extends React.Component {

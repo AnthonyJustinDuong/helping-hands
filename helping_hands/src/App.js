@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-
+import _ from './env.js'
 import Navigation from "./react-components/Navigation";
 import Home from "./react-components/Home";
 import HelpNeeded from "./react-components/HelpNeeded";

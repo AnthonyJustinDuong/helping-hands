@@ -1,6 +1,5 @@
 import {
-  validateUniqueUsername, validateUniqueEmail, validateEmailPattern,
-  validatePhoneNumber, validatePassword,
+  validateUniqueUsername, validateUniqueEmail, validatePassword,
 } from "./formValidation.js";
 
 const environment = process.env.NODE_ENV === 'development' ?
