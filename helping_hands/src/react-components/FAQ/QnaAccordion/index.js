@@ -33,8 +33,7 @@ class Accordion extends React.Component {
 	      <p>{question}</p>
 	      <img src={this.state.toggleIcon} alt="Toggle Icon" id="toggleIcon" />
 	    </div>
-	    <div className={this.state.answer}>
-	      <p>{answer}</p>
+	    <div className={this.state.answer} dangerouslySetInnerHTML={{ __html: answer }}>
 	    </div>
 	  </div>
     );
