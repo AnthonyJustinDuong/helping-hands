@@ -52,8 +52,8 @@ class Post extends React.Component {
       })
       .catch((e) => console.log(e));
 
-    console.log(this.state.image);
-    console.log(this.state);
+    // console.log(this.state.image);
+    // console.log(this.state);
   }
 
   render() {

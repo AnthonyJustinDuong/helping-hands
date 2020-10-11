@@ -1,4 +1,5 @@
 import React from 'react';
+import { uid } from "react-uid";
 import { GoogleMap, LoadScript, MarkerClusterer, TrafficLayer } from '@react-google-maps/api';
 import ClickableMarker from './ClickableMarker';
 
@@ -9,13 +10,8 @@ class MapContainer extends React.Component {
     posts: [],
   }
 
-  centreMap = () => {
-    const selPostId = this.props.selected;
-    return this.findPostLocation(selPostId);
-  }
-
   findPostLocation = targetPostId => {
-    const targetPost = this.state.posts.filter(post => post.postId === targetPostId)[0];
+    const targetPost = this.state.posts.filter(post => post._id === targetPostId)[0];
     if (targetPost) {
       return targetPost.location;
     }
@@ -30,39 +26,40 @@ class MapContainer extends React.Component {
     return (this.state.posts.map(post => {
       return (
         <ClickableMarker
-          key={post.postId}
-          postId={post.postId}
+          key={post._id}
+          postId={post._id}
           position={post.location}
           title={post.userName}
           clusterer={clusterer}
           setSelectedPost={this.props.setSelectedPost}
-          opacity={this.markerOpacity(post.postId)}
+          opacity={this.markerOpacity(post._id)}
         />
       );
     }));
   }
 
-  componentDidMount() {
-    const postsModified = this.props.posts.map(post => {
-      const postModified = {
-        ...post
-      }
-      return getUserById(post.userId, "location+name").then(user => {
-        console.log(user);
-        postModified.location = user.location;
-        postModified.userName = user.name.first + " " + user.name.last;
-        return postModified;
+  componentDidUpdate(prevProps) {
+    if (this.props.posts !== prevProps.posts) {
+      const postsModified = this.props.posts.map(post => {
+        const postModified = {
+          ...post
+        }
+
+        return getUserById(post.author, "location+name").then(user => {
+          postModified.location = user.location;
+          postModified.userName = user.name.first + " " + user.name.last;
+          return postModified;
+        });
       });
-    });
 
-    Promise.all(postsModified).then(posts => {
-      this.setState({posts});
-    })
-
+      Promise.all(postsModified).then(posts => {
+        this.setState({posts});
+      })
+    }
   }
 
   render() {
-    console.log(process.env);
+    console.log("render called in MapContainer");
     const containerStyle = {
       width: '100%',
       height: '100%'
@@ -74,11 +71,11 @@ class MapContainer extends React.Component {
 
     return (
       <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY}
+        googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY || process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
       >
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={this.centreMap()}
+          center={this.findPostLocation(this.props.selected)}
           zoom={this.props.zoom}
         >
           <MarkerClusterer

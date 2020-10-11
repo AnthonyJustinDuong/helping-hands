@@ -215,7 +215,7 @@ class SignUp extends React.Component {
 
     // Get the addresses latitude and longitute
     const { streetAddress, city, province } = this.state;
-    const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
+    const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${streetAddress},+${city},+${province}&key=${apiKey}`
     );
