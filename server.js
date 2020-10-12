@@ -111,7 +111,7 @@ app.post("/users/login", mongoChecker, (req, res) => {
     .then((user) => {
       req.session.user = user._id;
       // req.session.admin = user._id;
-      console.log(req.session);
+      // console.log(req.session);
       res.status(200).send({ currentUser: user });
     })
     .catch((error) => {
@@ -137,7 +137,7 @@ const authenticate = (req, res, next) => {
   // Problem cannot get authentication with React development server!
   if (!process.env.PORT) { // Not on Heroku
     next();
-    console.log(req.session);
+    // console.log(req.session);
     return;
   }
 
@@ -184,19 +184,18 @@ app.post("/chatrooms", mongoChecker, authenticate, (req, res) => {
   });
 
   // Save the chat
-  chatRoom.save().then((result) => {
+  chatRoom.save().then(async (result) => {
     // Add chat rooms to the user's lists
-    User.findById(result.creator)
+    await User.findById(result.creator)
 			.then((creator) => {
 				creator.chatRooms.push(result._id);
 				creator.save();
 			})
-    User.findById(result.otherChatter)
+    await User.findById(result.otherChatter)
 		.then((other) => {
 			other.chatRooms.push(result._id);
 			other.save();
 		})
-
       res.send(result);
     })
     .catch((error) => {

@@ -90,7 +90,9 @@ class Messages extends React.Component {
      const assosciatedChats = currentUser.chatRooms.map(this.getChatInfo);
 
      Promise.all(assosciatedChats)
-      .then(chatInfoList => this.setState({ chatInfoList }));
+      .then(chatInfoList =>
+        this.setState({ chatInfoList: chatInfoList.filter(chatInfo => chatInfo)})
+      );
 
     this.state.socket.on('message', message => {
       this.setState(
@@ -103,6 +105,8 @@ class Messages extends React.Component {
   getChatInfo = async chatId => {
     const { currentUser } = this.props.state;
     const chat = await getChatById(chatId, "creator otherChatter");
+
+    if (!chat) return null;
 
     const other = await (chat.creator === currentUser._id
       ? getUserById(chat.otherChatter, "avatar+name")

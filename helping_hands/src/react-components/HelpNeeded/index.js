@@ -15,6 +15,7 @@ import {
 } from "../../actions/posts.js";
 
 import {
+  getUserById,
   addPostToBookmarks,
   removePostFromBookmarks,
 } from "../../actions/user.js";
@@ -89,8 +90,16 @@ class HelpNeeded extends React.Component {
   };
 
   onContactEvent = (contactId) => {
-    createChatRoom(this.props.state.currentUser._id, contactId);
-    this.props.history.push("../messages");
+    createChatRoom(this.props.state.currentUser._id, contactId)
+    .then(res => {
+      return getUserById(this.props.state.currentUser._id)
+    })
+    .then(currentUser => {
+        this.props.setGlobalState({ currentUser }, () =>
+          this.props.history.push("../messages")
+        )
+      }
+    );
   };
 
   // FOR PROFILE ICON CLICK (ON USERID'S POST)

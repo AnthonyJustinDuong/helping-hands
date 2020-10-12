@@ -38,7 +38,13 @@ class App extends React.Component {
             <Route
               exact
               path="/help-needed"
-              render={() => <HelpNeeded state={this.state} />}
+              render={() =>
+                <HelpNeeded
+                  state={this.state}
+                  setGlobalState={(propertyChange, callback) => {
+                    this.setState(propertyChange, callback);
+                  }}
+                />}
             />
             <Route exact path="/faq" render={() => <FAQ />} />
             <Route exact path="/leaderboard" render={() => <Leaderboard />} />

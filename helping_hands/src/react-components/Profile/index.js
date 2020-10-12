@@ -40,8 +40,16 @@ class Profile extends React.Component {
   }
 
   messageUser() {
-    createChatRoom(this.props.state.currentUser._id, this.state.userId);
-    this.props.history.push("../messages");
+    createChatRoom(this.props.state.currentUser._id, this.state.userId)
+    .then(res => {
+      return getUserById(this.props.state.currentUser._id)
+    })
+    .then(currentUser => {
+        this.props.setGlobalState({ currentUser }, () =>
+          this.props.history.push("../messages")
+        )
+      }
+    );
   }
 
   getUserInfo() {
@@ -100,10 +108,11 @@ class Profile extends React.Component {
         <div className="column" id="profileInfo">
           {this.getUserInfo()}
           <br />
-          {/* TODO: conditional render below, if it is the currentUser's profile */ }
+          {this.props.state.currentUser &&
           <p className="clickableText" onClick={() => this.messageUser()}>
             Private message user
-          </p>{" "}
+          </p>
+        }{" "}
           <br />
           {this.props.state.currentUser &&
           this.props.state.currentUser._id === this.state.userId ? (
