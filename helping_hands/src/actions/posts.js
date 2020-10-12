@@ -1,11 +1,7 @@
-const environment = process.env.NODE_ENV === 'development' ?
-  `http://localhost:${process.env.REACT_APP_PORT}` :
-  '' ;
-
 const date = require("date-and-time");
 
 const getAllPosts = () => {
-  return fetch(environment + "/posts")
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts")
     .then((res) => res.json())
     .then((posts) =>
       posts.map((post) => {
@@ -21,13 +17,13 @@ const getAllPosts = () => {
 };
 
 const getPost = (postId) => {
-  return fetch(environment + "/posts/" + postId).then((res) =>
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/" + postId).then((res) =>
     res.json()
   );
 };
 
 const getFulfilledPosts = () => {
-  return fetch(environment + "/posts/fulfilled")
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/fulfilled")
     .then((res) => res.json())
     .then((posts) =>
       posts.map((post) => {
@@ -43,7 +39,7 @@ const getFulfilledPosts = () => {
 };
 
 const getUnfulfilledPosts = () => {
-  return fetch(environment + "/posts/unfulfilled")
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/unfulfilled")
     .then((res) => res.json())
     .then((posts) =>
       posts.map((post) => {
@@ -62,7 +58,7 @@ const getBookmarkedPostsForUser = (user) => {
   const requests = [];
   for (let i = 0; i < user.bookmarked; i++) {
     requests.push(
-      fetch(environment + "/posts/" + user.bookmarked[i]).then((res) =>
+      fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/" + user.bookmarked[i]).then((res) =>
         res.json()
       )
     );
@@ -82,7 +78,7 @@ const getBookmarkedPostsForUser = (user) => {
 };
 
 const getAllPostsForUser = (user) => {
-  return fetch(environment + "/posts/user/" + user._id)
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/user/" + user._id)
     .then((res) => res.json())
     .then((posts) =>
       posts.map((post) => {
@@ -98,7 +94,7 @@ const getAllPostsForUser = (user) => {
 };
 
 const addPost = (user, content) => {
-  return fetch(environment + "/posts", {
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts", {
     method: "POST",
     body: JSON.stringify({
       author: user._id,
@@ -114,13 +110,13 @@ const addPost = (user, content) => {
 };
 
 const removePost = (postId) => {
-  return fetch(environment + "/posts/" + postId, {
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/" + postId, {
     method: "DELETE",
   });
 };
 
 const changePostStatus = (postId, isResolved) => {
-  return fetch(environment + "/posts/" + postId, {
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/posts/" + postId, {
     method: "PATCH",
     body: JSON.stringify({ status: isResolved }),
     headers: {

@@ -1,7 +1,3 @@
-const environment = process.env.NODE_ENV === 'development' ?
-  `http://localhost:${process.env.REACT_APP_PORT}` :
-  '' ;
-
 export const validateUsernamePattern = username => {
   const errors = [];
 
@@ -25,7 +21,7 @@ export const validateUniqueUsername = username => {
   // return new Promise(function(resolve, reject) {
   //   resolve(username !== "user" && username !== "user*")
   // });
-  return fetch(environment + `/users/unique-username/${username}`)
+  return fetch(process.env.REACT_APP_LOCAL_PATH + `/users/unique-username/${username}`)
     .then(res => {
       if (res.status === 200) return res.json();
       return Promise.reject();
@@ -49,7 +45,7 @@ export const validateUniqueEmail = email => {
   // return new Promise(function(resolve, reject) {
   //   resolve(email !== "user@mail.com" && email !== "user")
   // });
-  return fetch(environment + `/users/unique-email/${email}`)
+  return fetch(process.env.REACT_APP_LOCAL_PATH + `/users/unique-email/${email}`)
     .then(res => {
       if (res.status === 200) return res.json();
       return "Could not verify email";

@@ -58,7 +58,6 @@ class MapContainer extends React.Component {
   }
 
   render() {
-    console.log("render called in MapContainer, process.env: ", process.env);
     const containerStyle = {
       width: '100%',
       height: '100%'
@@ -70,7 +69,7 @@ class MapContainer extends React.Component {
 
     return (
       <LoadScript
-        googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY || process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
       >
         <GoogleMap
           mapContainerStyle={containerStyle}

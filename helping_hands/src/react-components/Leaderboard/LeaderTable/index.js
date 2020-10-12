@@ -22,11 +22,7 @@ class LeaderTable extends React.Component {
   //
 
   componentDidMount() {
-    const environment = process.env.NODE_ENV === 'development' ?
-      `http://localhost:${process.env.REACT_APP_PORT}` :
-      '' ;
-
-    const url = environment + `/leaderboards/${this.state.city}`;
+    const url = process.env.REACT_APP_LOCAL_PATH + `/leaderboards/${this.state.city}`;
 
     fetch(url)
       .then(res => {

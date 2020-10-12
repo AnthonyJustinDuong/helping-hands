@@ -58,11 +58,7 @@ class ProfileDropdown extends React.Component {
             to={"../login"}
             className="link-dropdown"
             onClick={() => {
-              const environment = process.env.NODE_ENV === 'development' ?
-                `http://localhost:${process.env.REACT_APP_PORT}` :
-                '' ;
-
-              fetch(environment + "/users/logout");
+              fetch(process.env.REACT_APP_LOCAL_PATH + "/users/logout");
               this.props.setGlobalState({ currentUser: null });
               this.props.onProfileEvent();
             }}

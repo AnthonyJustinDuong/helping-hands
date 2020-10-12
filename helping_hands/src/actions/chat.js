@@ -1,10 +1,6 @@
-const environment = process.env.NODE_ENV === 'development' ?
-  `http://localhost:${process.env.REACT_APP_PORT}` :
-  '' ;
-
 // POST new message in chat
 export const sendMessage = (chatId, message) => {
-  const request = new Request(environment + `/chatrooms/${chatId}`, {
+  const request = new Request(process.env.REACT_APP_LOCAL_PATH + `/chatrooms/${chatId}`, {
     method: "post",
     body: JSON.stringify(message),
     headers: {
@@ -25,7 +21,7 @@ export const sendMessage = (chatId, message) => {
 
 // GET entire chat document by id
 export const getChatById = (chatId, projection) => {
-  return fetch(environment + `/chatrooms/${chatId}?projection=${projection}`)
+  return fetch(process.env.REACT_APP_LOCAL_PATH + `/chatrooms/${chatId}?projection=${projection}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -38,7 +34,7 @@ export const getChatById = (chatId, projection) => {
 
 // POST chat room
 export const createChatRoom = (creator, otherChatter) => {
-  const request = new Request(environment + "/chatrooms", {
+  const request = new Request(process.env.REACT_APP_LOCAL_PATH + "/chatrooms", {
     method: "post",
     body: JSON.stringify({creator, otherChatter}),
     headers: {

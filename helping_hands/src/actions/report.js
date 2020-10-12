@@ -1,19 +1,15 @@
-const environment = process.env.NODE_ENV === 'development' ?
-  `http://localhost:${process.env.REACT_APP_PORT}` :
-  '' ;
-
 const getAllReports = () => {
-  return fetch(environment + "/reports").then((res) => res.json());
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/reports").then((res) => res.json());
 };
 
 const getAllReportsForUser = (userId) => {
-  return fetch(environment + "/reports/user/" + userId).then((res) =>
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/reports/user/" + userId).then((res) =>
     res.json()
   );
 };
 
 const addReport = (userId, postId, content) => {
-  return fetch(environment + "/reports", {
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/reports", {
     method: "POST",
     body: JSON.stringify({
       author: userId,
@@ -28,7 +24,7 @@ const addReport = (userId, postId, content) => {
 };
 
 const removeReport = (reportId) => {
-  return fetch(environment + "/reports/" + reportId, {
+  return fetch(process.env.REACT_APP_LOCAL_PATH + "/reports/" + reportId, {
     method: "DELETE",
   });
 };

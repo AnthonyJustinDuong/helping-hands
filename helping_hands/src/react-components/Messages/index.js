@@ -8,9 +8,6 @@ import ChatItem from './ChatItem'
 import { sendMessage, getChatById } from '../../actions/chat.js';
 import { getUserById, loggedIn } from '../../actions/user.js';
 import './styles.css';
-const environment = process.env.NODE_ENV === 'development' ?
-  `http://localhost:${process.env.REACT_APP_PORT}` :
-  '' ;
 
 class Messages extends React.Component {
   state = {
@@ -22,7 +19,7 @@ class Messages extends React.Component {
       title: "Select a chat on the left.",
     },
     currentLog: [],
-    socket: io(environment)
+    socket: io(process.env.REACT_APP_LOCAL_PATH)
   }
 
   onSendMessage = (content) => {

@@ -2,13 +2,9 @@ import {
   validateUniqueUsername, validateUniqueEmail, validatePassword,
 } from "./formValidation.js";
 
-const environment = process.env.NODE_ENV === 'development' ?
-  `http://localhost:${process.env.REACT_APP_PORT}` :
-  '' ;
-
 // GET user information by id
 export const getUserById = (userId, projection) => {
-  return fetch(environment + `/users/${userId}?projection=${projection}`)
+  return fetch(process.env.REACT_APP_LOCAL_PATH + `/users/${userId}?projection=${projection}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -25,7 +21,7 @@ export const loggedIn = (user) => {
 
 // POST add user
 const addUser = (userInfo) => {
-  const request = new Request(environment + "/users", {
+  const request = new Request(process.env.REACT_APP_LOCAL_PATH + "/users", {
     method: "post",
     body: JSON.stringify(userInfo),
     headers: {
@@ -78,7 +74,7 @@ export const registerUser = information => {
 
 // POST request with the user to be logged in
 export const login = usernamePassword => {
-  const request = new Request(environment + "/users/login", {
+  const request = new Request(process.env.REACT_APP_LOCAL_PATH + "/users/login", {
     method: "post",
     body: JSON.stringify(usernamePassword),
     headers: {
@@ -99,7 +95,7 @@ export const login = usernamePassword => {
 
 // PATCH user's email
 export const modifyEmail = (userId, email) => {
-      const request = new Request(environment + `/users/${userId}`, {
+      const request = new Request(process.env.REACT_APP_LOCAL_PATH + `/users/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({"email": email}),
         headers: {
@@ -120,7 +116,7 @@ export const modifyEmail = (userId, email) => {
 
 // PATCH user's password
 export const modifyPassword = (userId, password, confirmPassword) => {
-      const request = new Request(environment + `/users/${userId}`, {
+      const request = new Request(process.env.REACT_APP_LOCAL_PATH + `/users/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({"password": password}),
         headers: {
@@ -142,7 +138,7 @@ export const modifyPassword = (userId, password, confirmPassword) => {
 
 // PATCH user's phone number
 export const modifyPhoneNumber = (userId, phoneNumber) => {
-      const request = new Request(environment + `/users/${userId}`, {
+      const request = new Request(process.env.REACT_APP_LOCAL_PATH + `/users/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({"phoneNumber": phoneNumber}),
         headers: {
@@ -185,7 +181,7 @@ export const addPostToBookmarks = (userId, postId) => {
 
 // PATCH remove post from user's bookmarked
 export const removePostFromBookmarks = (userId, postId) => {
-  const request = new Request(environment + `/users/${userId}/bookmarked`, {
+  const request = new Request(process.env.REACT_APP_LOCAL_PATH + `/users/${userId}/bookmarked`, {
     method: "delete",
     body: JSON.stringify({post: postId}),
     headers: {
