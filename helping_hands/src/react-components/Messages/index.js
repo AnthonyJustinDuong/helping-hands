@@ -87,12 +87,14 @@ class Messages extends React.Component {
   componentDidMount() {
     const { currentUser } = this.props.state;
      if (!loggedIn(currentUser)) return;
-     const assosciatedChats = currentUser.chatRooms.map(this.getChatInfo);
-
-     Promise.all(assosciatedChats)
-      .then(chatInfoList =>
-        this.setState({ chatInfoList: chatInfoList.filter(chatInfo => chatInfo)})
-      );
+     getUserById(currentUser._id, "chatRooms")
+        .then(async user => {
+          const chatList = await user.chatRooms.map(this.getChatInfo)
+          Promise.all(chatList)
+           .then(chatInfoList =>
+             this.setState({ chatInfoList: chatInfoList.filter(chatInfo => chatInfo)})
+           );
+        })
 
     this.state.socket.on('message', message => {
       this.setState(
